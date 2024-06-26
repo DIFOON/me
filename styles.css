@@ -1,0 +1,168 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Unbounded", sans-serif; /* Use Arial as the default font */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    top: -20px
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Стили для видео */
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    filter: blur(10px); /* Регулируйте значение, чтобы получить желаемый эффект миниблюра */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 400px;
+}
+
+
+.profile-card {
+    background-color: black;
+    border: 5px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 1000px;/* Поднимаем блок на 20px выше */
+}
+
+
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #fff; /* Цвет и толщина обводки */
+    margin-top: -360px; /* Если нужно сдвинуть вверх, можно оставить */
+}
+
+
+h2.username {
+    margin: 10px 0;
+    font-family: 'Unbounded', "Roboto Mono"; /* Apply the font to username */
+    color: white;
+}
+
+.status {
+    font-size: 1em;
+    margin-bottom: 10px;
+    font-family: "Roboto Mono"; /* Apply the font to status */
+    color: white;
+}
+
+
+.discord-profile {
+    border: 5px solid black;
+    background-color: white; /* Прозрачный серый цвет фона с альфа-каналом 0.5 */
+    backdrop-filter: blur(10px); /* Размытие фона с помощью backdrop-filter */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 450px;
+    max-height: 230px;
+    position: absolute;
+    bottom: 260px; /* Располагаем блок внизу с отступом 20px */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Корректируем положение по горизонтали */
+}
+
+.twopages {
+    border: 5px solid black;
+    background-color: rgba(210, 210, 210, 0.5); /* Прозрачный серый цвет фона с альфа-каналом 0.5 */
+    backdrop-filter: blur(10px); /* Размытие фона с помощью backdrop-filter */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 450px;
+    max-height: 230px;
+    position: absolute;
+    bottom: 180px; /* Располагаем блок внизу с отступом 20px */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Корректируем положение по горизонтали */
+}
+
+
+/* Adjustments for Telegram and Discord links */
+.telegramm-link, .discord-link, .twitch-link, .github-link {
+    display: inline-block; /* Ensure they stay on the same line */
+    margin-right: 10px; /* Adjust spacing between icons */
+    text-decoration: none;
+    color: #fff; /* Text color near the icons */
+}
+
+.telegramm-icon, .discord-icon, .twitch-icon, .github-icon {
+    margin-top: 10px;
+    width: 64px; /* Set a fixed size for the icons */
+    height: 64px;
+    vertical-align: middle; /* Align icons vertically */
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 480px) {
+    .profile-card {
+        max-width: 300px;
+    }
+
+    .username {
+        font-size: 1.2em;
+    }
+
+    .status {
+        font-size: 1em;
+    }
+}
+
+.cursor {
+    display: inline-block;
+    width: 1px;
+    height: 0.9em; /* Высота черты */
+    margin-left: 4px; /* Расстояние от текста до черты */
+    background-color: gray;
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}

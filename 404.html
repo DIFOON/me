@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Close Tab on DevTools Detection</title>
+    <script>
+        (function() {
+            let devtoolsOpen = false;
+            const threshold = 160;
+
+            function checkDevTools() {
+                // Проверка размеров окна для обнаружения DevTools
+                devtoolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;
+                
+                if (devtoolsOpen) {
+                    // Пытаемся закрыть вкладку
+                    window.close();
+                    
+                    // Если вкладка не закрылась (из-за ограничений браузера), перенаправляем на другую страницу
+                    setTimeout(function() {
+                        window.location.href = '404.html';
+                    }, 1000); // Через 1 секунду
+                }
+            }
+
+            // Запускаем проверку с интервалом
+            setInterval(checkDevTools, 1000); // каждую секунду
+        })();
+    </script>
+</head>
+<body>
+    <h1>Закрытие вкладки при обнаружения DEVTOOLS...</h1>
+</body>
+</html>
